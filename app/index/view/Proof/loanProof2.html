@@ -1,0 +1,38 @@
+﻿<extend name="Public/body"/>
+<block name="title">个人还贷证明</block>
+<block name="nav">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 打印证明 <span class="c-gray en">&gt;</span> 个人还贷证明 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav></block>
+<block name="page">
+<div id="printDoc" name="printDoc">
+	<div class="page-container">
+		<p class="f-20 text-c">湘潭市住房公积金管理中心个人还贷证明（网络打印版）</p>	
+		<table class="table table-border table-bordered table-bg">
+			<thead>
+				<tr>
+				<th class="c-primary" align="right">还贷证明</th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr height=300>			  
+					<td >
+						<div class="proof"><font color='red'>&nbsp;&nbsp;由于您当前在我中心不存在购房贷款记录，无法出具此证明。</font>（请另行打印其他相关证明）</div>
+						<br/><br/><br/><br/>
+						<div align="right">湘潭市住房公积金管理中心<br /><{$queryDate}></div>					
+					</td>
+				</tr> 
+			</tbody>
+		</table>		
+	</div>
+	
+</div></block>
+<block name="script">
+<script type="text/javascript">
+$('.table-sort').dataTable({
+	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+	"bStateSave": true,//状态保存
+	"aoColumnDefs": [
+	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+	  {"orderable":false,"aTargets":[0,13]}// 制定列不参与排序
+	]
+});
+</script></block>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/Public/lib/html5.js"></script>
+<script type="text/javascript" src="/Public/lib/respond.min.js"></script>
+<script type="text/javascript" src="/Public/lib/PIE_IE678.js"></script>
+<![endif]-->
+<link href="/Public/Static/css/min.css" rel="stylesheet" type="text/css" />
+<link href="/Public/Static/css/login.css" rel="stylesheet" type="text/css" />
+<link href="/Public/Static/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/Public/lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet" type="text/css" />
+<title>用户登录-湘潭市公积金管理中心职工公积金查询及证明自助打印平台</title>
+<meta name="keywords" content="湘潭市公积金管理中心,湘潭职工公积金查询,公积金证明打印">
+<meta name="description" content="湘潭市公积金管理中心,湘潭职工公积金查询,公积金证明打印。">
+</head>
+<body>
+<input type="hidden" id="TenantId" name="TenantId" value="" />
+<div class="header"></div>
+<div class="loginWraper">
+  <div id="loginform" class="loginBox">
+    <form class="form form-horizontal formlogin" action="<{:U('Login/do_login')}>" method="post" data-ajax="false">
+      <div class="row cl">
+        <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
+        <div class="formControls col-xs-8">
+          <input id="spidno" name="spidno" type="text" placeholder="请输入在我中心登记的十八位身份证号码" class="input-text size-L" datatype="s15-18" errormsg="请输入正确的身份证号码！">
+        </div>
+      </div>
+      <div class="row cl">
+        <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe628;</i></label>
+        <div class="formControls col-xs-8">
+          <input id="spcardno" name="spcardno" type="text" placeholder="请输入已经在开户银行绑定的公积金卡号后六位" class="input-text size-L" datatype="s6-6" errormsg="请输入绑定的公积金卡号后6位！">
+        </div>
+      </div>
+      <div class="row cl">
+        <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
+        <div class="formControls col-xs-8">
+          <input id="sppassword" name="sppassword" type="password" placeholder="请输入密码,默认密码888888,请及时修改" class="input-text size-L" datatype="s1-8" errormsg="请输入密码！">
+        </div>
+      </div>
+      <div class="row cl">
+        <div class="formControls col-xs-8 col-xs-offset-3">
+          <input name="code" id="code" class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;" datatype="s4-4" errormsg="请输入4位验证码！">
+          <img src="__MODULE__/Public/code" onclick="this.src=this.src+'?'+Math.random()"/> 		  
+      </div>
+      
+      <div class="row cl">
+        <div class="formControls col-xs-8 col-xs-offset-3">
+          <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+          <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="footer">Copyright ©2016 湘潭市公积金管理中心  All Rights Reserved.</div>
+<script type="text/javascript" src="/Public/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/Public/lib/Validform/5.3.2/Validform.min.js"></script> 
+<script type="text/javascript" src="/Public/Static/js/base.js"></script> 
+<script>
+$(".formlogin").Validform();
+</script>
+</body>
+</html>

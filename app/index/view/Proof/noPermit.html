@@ -1,0 +1,26 @@
+﻿<extend name="Public/body"/>
+<block name="title">无贷款证明</block>
+<block name="nav">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 打印证明 <span class="c-gray en">&gt;</span> 未授权 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav></block>
+<block name="page">
+<div id="printDoc" name="printDoc">
+	<div class="page-container">
+		<p class="f-20 text-c">湘潭市住房公积金管理中心证明打印授权说明</p>
+		<table class="table table-border table-bordered table-bg">
+			<thead>
+				<tr>
+				<th class="c-error" align="right">未授权提示</th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr height=300>			  
+					<td >
+						<div class="proof">&nbsp;&nbsp;您未与我中心签署授权协议，暂时无法打印相关证明。如需自助打印相关证明，请前往我中心营业厅咨询办理相关手续。</div>
+						<br/><br/><br/><br/>
+						<div align="right">湘潭市住房公积金管理中心<br /><{$spdate}></div>					
+					</td>
+				</tr> 
+			</tbody>
+		</table>		 
+	</div>
+</div></block>

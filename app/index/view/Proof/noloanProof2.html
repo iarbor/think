@@ -1,0 +1,26 @@
+﻿<extend name="Public/body"/>
+<block name="title">无贷款证明</block>
+<block name="nav">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 打印证明 <span class="c-gray en">&gt;</span> 无贷款证明 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav></block>
+<block name="page">
+<div id="printDoc" name="printDoc">
+	<div class="page-container">
+		<p class="f-20 text-c">湘潭市住房公积金管理中心无贷款证明（网络打印版）</p>
+		<table class="table table-border table-bordered table-bg">
+			<thead>
+				<tr>
+				<th class="c-primary" align="right">无贷款证明&nbsp;&nbsp;&nbsp;查询时间：<{$queryDate}></th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr height=300>			  
+					<td >
+						<div class="proof">&nbsp;&nbsp;职工<u>&nbsp;<{$spname}>&nbsp;</u>，身份证号<u>&nbsp;<{$spidno}>&nbsp;</u>，<{$tips}></div>
+						<br/><br/><br/><br/>
+						<div align="right">湘潭市住房公积金管理中心<br /><{$spdate}></div>					
+					</td>
+				</tr> 
+			</tbody>
+		</table>		 
+	</div>
+</div></block>

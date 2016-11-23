@@ -1,0 +1,115 @@
+﻿<extend name="Public/body"/>
+<block name="title">公积金缴存证明</block>
+<block name="nav">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 打印证明 <span class="c-gray en">&gt;</span> 账户缴存证明 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"> <i class="Hui-iconfont">&#xe68f;</i> </a> </nav></block>
+<block name="page">
+<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l" id="print"><a href="javascript:;"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe652;</i> 打印证明</a> </span>  </div>
+<div id="printDoc" name="printDoc">
+
+	<div class="page-container">
+		<p class="f-20 text-c">湘潭市住房公积金管理中心公积金账户缴存证明（网络打印版）</p>	
+		<div class="cl pd-5 bg-1 bk-gray mt-20">
+			<img src="<{:U('Public/qrcode')}>?token=<{$token}>"/>说明：扫描左侧二维码，或登录<a href='<{:C('LINKURL')}>/valid.html'><{:C('LINKURL')}>/valid.html</a>查验此证明真伪。
+		</div>	
+		<table class="table table-border table-bordered table-bg" id="baseInfo">
+			<thead>
+				<tr>
+					<th class="c-primary" colspan="6" scope="col">证明编号：<{$token}>&nbsp;&nbsp;&nbsp;&nbsp;查询时间：<{$queryDate}></th>
+				</tr>			
+			</thead>
+			<tbody>			
+				<tr>
+					<td width="15%"class="c-primary tips"  align="right"  >职工账号</th>
+					<td width="20%"><{$person.spcode}>&nbsp;</td>
+					<td width="15%"class="c-primary tips"  align="right">职工姓名</th>
+					<td width="20%" ><{$person.spname}>&nbsp;</td>               	
+					<td width="15%" class="c-primary tips"  align="right">汇缴状态</th>
+					<td width="20%"><p><{$person.hjstatus}> &nbsp;</p></td>
+				</tr>
+				<tr>  
+					<td class="c-primary tips " align="right">单位账号</th>
+					<td ><{$person.sncode}>&nbsp;</td>
+					<td class="c-primary tips" align="right">单位名称</th>
+					<td colspan="3" ><{$person.snname}>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="c-primary tips" align="right">身份证号</th>
+					<td><{$person.spidno}>&nbsp;</td>
+					<td class="c-primary tips" align="right">手机号码</th>
+					<td><{$person.sjh}>&nbsp;</td>
+					<th class="c-primary tips" align="right">公积金卡</th>
+					<td><{$person.cardno}>&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="c-primary tips" align="right">开户日期</th>
+					<td><{$person.spkhrq}>&nbsp;</td>
+					<td class="c-primary tips" align="right">缴至年月</th>
+					<td>&nbsp;<{$person.spjym}></td>
+					<td class="c-primary tips" align="right">缴存比例</th>
+					<td>&nbsp;个人<{$person.spsingl}>%/单位<{$person.spjcbl}>%</td>
+				</tr>
+				<tr> 
+					<td class="c-primary tips" align="right">月缴额</th>
+					<td><{$person.spmfact|number_format=2}>&nbsp;元</td>
+					<td class="c-primary tips" align="right">公积金余额</th>
+					<td colspan="3"><{$person.spmend|number_format=2}>&nbsp;元</td>
+				</tr>				
+			</tbody>
+		</table>	
+		<div style="width:90px; position:absolute; top:280px; left:500px;"><img src="/Public/Static/images/zhang.png"  width="120px" /></div>
+	</div>
+	<div class="page-container">	
+		<div >
+			<table  class="table table-border table-bordered table-bg table-sort" id="detail">
+				<thead>
+					<tr class="text-c">
+						<th>记账日期</th>
+						<th>汇缴年月</th>
+						<th>处理类型</th>
+						<th >收入</th>
+						<th>利息</th>
+						<th>支出</th>
+						<th>余额</th>
+					</tr>
+				</thead>
+				<tbody>
+				<volist name="detail" id="vo2">
+					<tr>
+					<td ><{$vo2.qrrq}>&nbsp;</td>
+					<td><{$vo2.hjny}>&nbsp;</td>
+					<td><{$vo2.cllx}>&nbsp;</td>
+					<td><{$vo2.sr|number_format=2}>&nbsp;</td>
+					<td ><{$vo2.lx|number_format=2}>&nbsp;</td>
+					<td><{$vo2.zc|number_format=2}>&nbsp;</td>
+					<td><{$vo2.ye|number_format=2}>&nbsp;</td>
+					</tr>
+				</volist>
+				</tbody>		
+			</table>
+		</div>
+	</div>		
+</div></block>
+<block name="script">
+<script type="text/javascript">
+$('.table-sort').dataTable({
+	"aaSorting": [[ 0, "desc" ]],//默认第几个排序
+	"bStateSave": true,//状态保存
+	"aoColumnDefs": [
+	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+	  {"orderable":true,"aTargets":[0,6]}// 制定列不参与排序
+	]
+});
+$(document).ready(function () {		
+        $("#print").click(function () {				
+            var options = {
+                url: '<{:U('Qfund/saveProof')}>',
+                type: 'post',
+                dataType: 'text',
+                data: {proofType:"公积金缴存",proofCode:"<{$token}>"}
+            };
+            $.ajax(options);
+			$("#printDoc").printArea();
+            return false;
+        });
+    });		
+</script></block>

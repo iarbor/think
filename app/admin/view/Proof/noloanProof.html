@@ -1,0 +1,47 @@
+﻿<extend name="Public/body"/>
+<block name="title">无贷款证明</block>
+<block name="nav">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 打印证明 <span class="c-gray en">&gt;</span> 无贷款证明 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav></block>
+<block name="page">
+<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l" id="print"><a href="javascript:;"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe652;</i> 打印证明</a> </span>  </div>
+<div id="printDoc" name="printDoc">
+	<div class="page-container">
+		<p class="f-20 text-c">湘潭市住房公积金管理中心无贷款证明（网络打印版）</p>
+		<div class="cl pd-5 bg-1 bk-gray mt-20">
+			<img src="<{:U('Public/qrcode')}>?token=<{$token}>"/>说明：扫描左侧二维码，或登录<a href='<{:C('LINKURL')}>/valid.html'><{:C('LINKURL')}>/valid.html</a>查验此证明真伪。
+		</div>	
+		<table class="table table-border table-bordered table-bg">
+			<thead>
+				<tr>
+				<th class="c-primary" align="right">证明编号：<{$token}>&nbsp;&nbsp;&nbsp;&nbsp;查询时间：<{$queryDate}></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr height=300>
+					<td >
+						<div class="proof">&nbsp;&nbsp;职工<u>&nbsp;<{$spname}>&nbsp;</u>，身份证号<u>&nbsp;<{$spidno}>&nbsp;</u>，<{$tips}></div>
+						<br/><br/><br/><br/>
+						<div align="right">湘潭市住房公积金管理中心<br /><{$spdate}></div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div style="width:50px; height:50px; position:absolute; top:340px; left:500px;"><img src="/Public/Static/images/zhang.png" width="120px"  /></div>
+	</div>
+</div></block>
+<block name="script">
+<script>
+$(document).ready(function () {
+        $("#print").click(function () {
+            var options = {
+                url: '<{:U('Qfund/saveProof')}>',
+                type: 'post',
+                dataType: 'text',
+                data: {proofType:"公积金无贷款",proofCode:"<{$token}>"}
+            };
+            $.ajax(options);
+			$("#printDoc").printArea();
+            return false;
+        });
+    });
+</script></block>

@@ -1,0 +1,85 @@
+﻿<extend name="Public/body"/>
+<block name="title">公积金贷款详情</block>
+<block name="nav">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 公积金贷款 <span class="c-gray en">&gt;</span> 贷款详情 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav></block>
+<block name="page">
+<div class="page-container">
+	<p class="f-20 text-success">贷款基本情况</p>	
+	<table class="table table-border table-bordered table-bg" id="baseInfo">
+		<thead>
+			<tr>
+				<th class="c-primary" colspan="4" align="right">贷款合同信息</th>
+			</tr>
+			<tr>
+				<th class="c-primary" colspan="4" align="right">合同编号<u><{$htbh}></u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 单位：元&nbsp;&nbsp;&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th class="c-primary tips"  width="15%" align="right">贷款人姓名</th>
+				<td width="30%" ><{$spname}></td>				
+				<th class="c-primary tips"  width="15%" align="right">身份证号</th>
+				<td width="30%"  ><{$spidno}>&nbsp;</td>
+			</tr>
+			 <tr>
+	    	   <th class="c-primary tips"  >还款账号</th>
+	    	   <td >&nbsp;<{$hkzh}></td>	    	   
+	    	   <th  class="c-primary tips"  >贷款人单位名称</th>
+	    	   <td >&nbsp;<{$snname}></td>
+			</tr>
+			<tr>
+				<th  class="c-primary tips"  align="right">共同贷款人</th>
+				<td><volist name="commloan" id="vo">&nbsp;<{$vo.spname}><br/></volist></td>
+				<th  class="c-primary tips"  align="right">身份证号</th>
+				<td><volist name="commloan" id="vo">&nbsp;<{$vo.spidno}><br/></volist></td>
+			</tr>
+			
+			<tr>
+				<th  class="c-primary tips"  align="right">借款金额</th>
+				<td>&nbsp;<{$jkje}></td>
+				<th  class="c-primary tips"  align="right">期限</th>
+				<td>&nbsp;<{$jkqx}>月</td>
+			</tr>
+			
+			<tr>
+				<th  class="c-primary tips"  align="right">月利率</th>
+				<td>&nbsp;<{$jkyll}></td>
+				<th  class="c-primary tips"  align="right">月还款额</th>
+				<td>&nbsp;<{$yhje}></td>
+			</tr>
+			<tr>
+				<th  class="c-primary tips"  align="right">放贷日期</th>
+				<td>&nbsp;<{$fdrq}></td>
+				<th  class="c-primary tips"  align="right">结束年月</th>
+				<td>&nbsp;<{$jsrq}></td>
+			</tr>
+			<tr>
+				<th  class="c-primary tips"  align="right">已还年月</th>
+				<td>&nbsp;<{$yhym}></td>
+				<th  class="c-primary tips"  align="right">还款方式</th>
+				<td>&nbsp;<{$hkfs}></td>
+			</tr>
+			<tr>
+				<th  class="c-primary tips"  align="right">本金余额</th>
+				<td>&nbsp;<{$bjye}></td>
+				<th  class="c-primary tips"  align="right">逾期金额</th>
+				<td>&nbsp;<{$yqbj}></td>
+			</tr>
+			<tr>
+				<th  class="c-primary tips"  align="right">逾期月数</th>
+				<td>&nbsp;</td>
+				<th  class="c-primary tips"  align="right">扣款账号</th>
+				<td>&nbsp;<{$xykh}></td>
+			</tr>
+			<tr>
+				<th  class="c-primary tips"  align="right">代扣银行</th>
+				<td>&nbsp;<{$orgname}></td>
+				<td  class="c-primary tips"  colspan="2" align="right">&nbsp;</td>
+				</tr>
+				<tr>
+				<th  class="c-primary tips"  align="right">购房地址</th>
+				<td colspan="4">&nbsp;<{$xxdz}></td>
+			</tr>
+		</tbody>
+	</table>	
+</div></block>

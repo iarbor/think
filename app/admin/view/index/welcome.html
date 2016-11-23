@@ -1,0 +1,117 @@
+﻿<extend name="Public/body"/>
+<block name="title">账户概况</block>
+<block name="page">
+<div class="page-container">
+	<p class="f-20 text-success">欢迎使用公积金查询及证明自助打印服务！</p>
+	<p> <font color='red'><{$tips}></font></p>
+	<p> </p>
+	<table align="center" cellpadding="0" cellspacing="0"  class="table table-border table-bordered table-bg">
+		<thead>
+			<tr>
+				<th class="c-primary" colspan="6" scope="col">基本信息</th>
+			</tr>
+		</thead>
+		<tbody>		
+			<tr>
+				<th class="c-primary tips"  align="right" >职工账号</th>
+				<td  ><{$vo.spcode}>&nbsp;</td>
+				<th class="c-primary tips"  align="right">职工姓名</th>
+				<td  ><{$vo.spname}>&nbsp;</td>
+				<th class="c-primary tips"  align="right">汇缴状态</th>
+				<td ><p><{$vo.hjstatus}> &nbsp;</p></td>
+			</tr>
+			<tr>
+				<td class="c-primary tips " align="right">单位账号</th>
+				<td ><{$vo.sncode}>&nbsp;</td>
+				<th class="c-primary tips" align="right">单位名称</th>
+				<td colspan="3" ><{$vo.snname}>&nbsp;</td>
+			</tr>
+			<tr>
+				<th class="c-primary tips" align="right">身份证号</th>
+				<td><{$vo.spidno}>&nbsp;</td>
+				<th class="c-primary tips" align="right">手机号码</th>
+				<td>       <{$vo.sjh}>&nbsp;</td>
+				<th class="c-primary tips" align="right">公积金卡</th>
+				<td><{$vo.cardno}>&nbsp;</td>
+			</tr>
+			<tr>
+				<th class="c-primary tips" align="right">开户日期</th>
+				<td><{$vo.spkhrq}>&nbsp;</td>
+				<th class="c-primary tips" align="right">缴至年月</th>
+				<td>&nbsp;<{$vo.spjym}></td>
+				<th class="c-primary tips" align="right">缴存比例</th>
+				<td>&nbsp;个人<{$vo.spsingl}>%/单位<{$vo.spjcbl}>%</td>
+			</tr>
+			<tr>
+				<th class="c-primary tips" align="right">月缴额</th>
+				<td><{$vo.spmfact|number_format=2}>&nbsp;元</td>
+				<th class="c-primary tips" align="right">公积金余额</th>
+				<td colspan="3"><{$vo.spmend}>&nbsp;元</td>
+			</tr>
+			
+		</tbody>
+	</table>
+</div>
+<div class="page-container">
+<div id="charts" style="height: 300px"></div>
+</div></block>
+<block name="script">
+<script type="text/javascript" src="/Public/lib/echarts/3/echarts.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("charts");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title: {
+        text: '最近12个月公积金缴存情况'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['月缴费金额','公积金余额']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: [<{$monthStr}>]
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'月缴费金额',
+            type:'line',
+            stack: '单位(元)',
+            data:[<{$srStr}>]
+        },
+        {
+            name:'公积金余额',
+            type:'line',
+            stack: '单位(元)',
+            data:[<{$yeStr}>]
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    var startTime = +new Date();
+    myChart.setOption(option, true);
+    var endTime = +new Date();
+    var updateTime = endTime - startTime;
+    console.log("Time used:", updateTime);
+}
+</script></block>

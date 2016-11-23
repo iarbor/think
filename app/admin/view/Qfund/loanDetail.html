@@ -1,0 +1,80 @@
+﻿<extend name="Public/body"/>
+<block name="title">
+公积金贷款详情</block>
+<block name="nav">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 公积金贷款 <span class="c-gray en">&gt;</span> 还贷明细 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav></block>
+<block name="page">
+<div class="page-container">
+<p class="f-20 text-success">公积金贷款还款明细</p>	
+	
+	<div class="cl pd-5 bg-1 bk-gray mt-20">  <span class="r">共有数据：<strong><{$totalCount}></strong> 条</span> </div>
+	<div class="mt-20">
+	<table class="table table-border table-bordered table-bg table-hover table-sort">
+			<thead>    	
+				<tr >
+					<th>还款日期</th>
+					<th>对应年月</th>
+					<th >还款类型</th>                	
+					<th >进账金额</th>                
+					<th >还款本金</th>
+					<th>还款利息</th>
+					<th>还款罚息</th>
+					<th>归还欠本</th>
+					<th>归还欠息</th>
+					<th >本次欠本 </th>
+					<th >本次欠息 </th>
+					<th >贷款余额 </th>
+					<th >欠本余额 </th>
+					<th >欠息余额 </th>
+				</tr>
+			</thead>
+			<tbody>
+			<volist name="loandetail" id="vo2">
+				<tr >
+					<td>&nbsp;
+					<div align="center"><{$vo2.hkrq}></div></td>
+					<td > &nbsp;
+					<div align="center"><{$vo2.hkym}></div></td>
+					<td>&nbsp;
+					<div align="center"><{$vo2.hklx}></div></td>
+					<td >&nbsp;
+					<div align="right"><{$vo2.jzje|number_format=2}></div></td>                
+					<td >&nbsp;
+					<div align="right"><{$vo2.yhbj|number_format=2}></div></td>
+					<td>&nbsp;
+					<div align="right"><{$vo2.yhlx|number_format=2}></div></td>
+					<td>&nbsp;
+					<div align="right"><{$vo2.fx|number_format=2}></div></td>
+					<td>&nbsp;
+					<div align="right"><{$vo2.ghyqbj|number_format=2}></div></td>
+					<td>&nbsp;
+					<div align="right"><{$vo2.ghyqlx|number_format=2}></div></td>
+					<td >&nbsp;
+					<div align="right"><{$vo2.yqbj|number_format=2}> </div></td>
+					<td >&nbsp;
+					<div align="right"><{$vo2.yqlx|number_format=2}> </div></td>
+					<td >&nbsp;
+					<div align="right"><{$vo2.bjye|number_format=2}> </div></td>
+					<td >&nbsp;
+					<div align="right"><{$vo2.ljyqbj|number_format=2}> </div></td>
+					<td >&nbsp;
+					<div align="right"><{$vo2.ljyqlx|number_format=2}> </div></td>
+				</tr>
+			</volist>	  
+			</tbody>
+		</table>
+		
+	</div>
+</div></block>
+<block name="script">
+<script type="text/javascript">
+$('.table-sort').dataTable({
+	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+	"bStateSave": true,//状态保存
+	"aoColumnDefs": [
+	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+	  {"orderable":false,"aTargets":[0,13]}// 制定列不参与排序
+	]
+});
+
+</script></block>

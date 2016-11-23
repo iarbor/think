@@ -1,0 +1,215 @@
+﻿<extend name="Public/body"/>
+<block name="title">异地贷款证明</block>
+<block name="nav">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 打印证明 <span class="c-gray en">&gt;</span> 异地贷款证明 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav></block>
+<block name="page">
+<div class="page-container">
+	<p>		
+		<label>省份    
+		<select name="province" id="province" onchange="chinaChange(this,document.getElementById('city'));" style=" width:10%; height:30px;line-height:30px; ">
+			<option value ="省份">请选择省份</option>
+			<option value ="湖南省">湖南省 </option>
+			<option value ="北京市">北京市 </option>
+			<option value ="天津市">天津市 </option>
+			<option value ="上海市">上海市 </option>
+			<option value ="重庆市">重庆市 </option>
+			<option value ="河北省">河北省 </option>
+			<option value ="山西省">山西省 </option>
+			<option value ="辽宁省">辽宁省 </option>
+			<option value ="吉林省">吉林省 </option>
+			<option value ="黑龙江省">黑龙江省</option>
+			<option value ="江苏省"> 江苏省 </option>
+			<option value ="浙江省">浙江省 </option>
+			<option value ="安徽省">安徽省 </option>
+			<option value ="福建省">福建省 </option>
+			<option value ="江西省">江西省 </option>
+			<option value ="山东省">山东省 </option>
+			<option value ="河南省">河南省 </option>
+			<option value ="湖北省">湖北省 </option>
+			<option value ="广东省">广东省 </option>
+			<option value ="海南省">海南省 </option>
+			<option value ="四川省">四川省 </option>
+			<option value ="贵州省">贵州省 </option>
+			<option value ="云南省">云南省 </option>
+			<option value ="陕西省">陕西省 </option>
+			<option value ="甘肃省">甘肃省 </option>
+			<option value ="青海省">青海省 </option>
+			<option value ="广西壮族自治区">广西壮族自治区</option>
+			<option value ="内蒙古自治区">内蒙古自治区</option>
+			<option value ="西藏自治区"> 西藏自治区</option>
+			<option value ="宁夏回族自治区"> 宁夏回族自治区 </option>
+			<option value ="新疆维吾尔自治区">新疆维吾尔自治区</option>
+		</select>
+		</label>
+		<label>城市
+		<select name="city" id="city" style=" width:10%; height:30px;line-height:30px; ">
+			<option value ="市区">请选择市区</option>
+		</select>
+		</label>
+		公积金管理中心</p>
+	  
+</div>
+<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;"   onclick="confirmName()" class="btn btn-success radius"><i class="Hui-iconfont">&#xe615;</i> 确认对方名称</a> </span> <span class="l" id="print"><a href="javascript:;"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe652;</i> 打印证明</a> </span>  </div>
+<div id="printDoc" name="printDoc">
+
+	<div class="page-container">
+	<volist name="list" id="vo"> 
+	<p class="f-20 text-c">湘潭市住房公积金管理中心异地贷款证明（网络打印版）</p>		
+		<form class="proofform">
+			<table  class="table table-border table-bordered table-bg table-hover">
+				<thead>
+					<tr><th class="c-primary" colspan="5" align="right">异地贷款证明&nbsp;&nbsp;&nbsp;&nbsp;编号：<{$token}>&nbsp;&nbsp;&nbsp;查询时间：<{$queryDate}></th></tr>
+				</thead>			
+				<tbody>
+				
+					<tr>
+					<td colspan="5">
+					<input name="fundCenter" type="text" class="inputT" id="fundCenter" size="30" maxlength="80" datatype="s4-40" errormsg="请输入对方公积金中心名称！" />：<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;我中心缴存职工 <u>&nbsp;&nbsp;<{$vo.spname}>&nbsp;&nbsp;</u>的住房公积金缴存使用情况如下。</td>
+					</tr>
+					<tr>
+					<th align="right" >职工姓名</th>
+					<td>&nbsp;<{$vo.spname}></td>
+					<th align="right" >身份证号</th>
+					<td colspan="2"><{$vo.spidno}>&nbsp;</td>
+					</tr>
+					<tr>
+					<th  align="right" >单位名称</th>
+					<td >&nbsp;<{$vo.snname}></td>
+					<th  align="right" >个人公积金账号</th>
+					<td colspan="2"><{$vo.spcode}>&nbsp; </td>
+					</tr>
+					<tr>
+					<th  align="right" >开户时间</th>
+					<td>&nbsp;<{$vo.spkhrq}>&nbsp;</td>
+					<th  align="right" >账户状态</th>
+					<td colspan="2"><{$vo.hjstatus}> </td>
+					</tr>
+					<tr>
+					<th  align="right" >缴存基数</th>
+					<td>&nbsp;<{$vo.spgz}></td>
+					<th  align="right" >缴存比例</th>
+					<td width="100">&nbsp;单位： <{$vo.spjcbl}>%</td>
+					<td width="100">&nbsp;个人： <{$vo.spsingl}>%</td>
+					</tr>
+					<tr>
+					<th  align="right" >月缴存额</th>
+					<td>&nbsp;<{$spmfact}></td>
+					<th  align="right" >缴存余额（大写） </th>
+					<td colspan="2">&nbsp;<{$spmend}></td>
+					</tr>
+					<tr>
+					<th  align="right" >最近连续缴存时间</th>
+					<td colspan="4">&nbsp;<{$vo.spkhqr|date='Ym',###}>&nbsp;-&nbsp;<{$vo.spjym}></td>
+					</tr>
+					<tr>
+					<th  align="right" >公积金贷款记录</th>
+					<td colspan="4">&nbsp;        
+					无贷款记录&nbsp;&nbsp;&nbsp;&nbsp;
+					</td>
+					</tr>
+					<tr>
+					<td colspan="5"  align="right" >
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我中心保证以上信息真实准确。<strong>本证明自开具之日起，2个月内有效。</strong><br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;单位经办人：&nbsp;刘国为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：&nbsp;0731-12329&nbsp;&nbsp; 单位公章（或业务专用章）：<br/>		      
+					<div align="right">&nbsp;&nbsp;&nbsp;湘潭市住房公积金管理中心&nbsp;&nbsp;&nbsp;&nbsp;</div>
+					<div align="right">&nbsp;<{$queryDate}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+					</tr>  
+				</tbody>	
+			</table>
+		</form>	
+		<div style="width:50px; height:50px; position:absolute; top:420px; left:500px;"><img src="/Public/Static/images/zhang.png"  width="120px"/></div>
+	
+		<table class="table table-border table-bordered table-bg table-hover">		
+		<thead>
+				<tr><th class="c-primary" colspan="5" align="right">异地贷款回执&nbsp;&nbsp;&nbsp;&nbsp;编号：<{$token}></th></tr>
+			</thead>			
+			<tbody>
+		<tr>
+		  <td colspan="5"  align="left">
+			<u>&nbsp;湘潭市住房公积金管理&nbsp;</u>中心：<br/>
+			<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;你中心缴存职工  <u>&nbsp;&nbsp;<{$vo.spname}>&nbsp;&nbsp;</u>（公积金账号：<u>&nbsp;&nbsp;<{$vo.spcode}>&nbsp;&nbsp;</u>）缴存使用证明收悉。根据我中心异地贷款政策规定，该职工<strong><u>(&nbsp;
+			<input name="self" type="checkbox" value="self" />
+			本人&nbsp;
+			<input name="join" type="checkbox" value="join" />
+			参贷&nbsp;)</u></strong>异地贷款申请审核结果为：&nbsp;&nbsp;
+			<input name="self2" type="checkbox" value="self" />
+			准予贷款&nbsp;
+			<input name="self3" type="checkbox" value="self"  />
+			不予贷款&nbsp; </td>
+		</tr>
+		<tr>
+		  <th align="right" >贷款金额（大写）</th>
+		  <td >&nbsp;</td>
+		  <th  align="right">贷款期限</th>
+		  <td width="20%" colspan="2">&nbsp; </td>
+		</tr>
+		<tr>
+		  <th  align="right" >贷款期间</th>
+		  <td colspan="4">&nbsp;</td>
+		</tr>
+		<tr>
+		  <th  align="right" >还款方式</th>
+		  <td>
+			  <input name="self8" type="checkbox" value="self"  />等额本金
+			  <input name="self9" type="checkbox" value="self" />等额本息 
+			  <input name="self10" type="checkbox" value="self" />其他
+			</td>
+		  <th  align="right" >还本息</th>
+		  <td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+		  <td colspan="5"  align="left" >
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我中心保证以上信息真实准确。<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单位经办人：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  单位公章（或业务专用章）： &nbsp;&nbsp;&nbsp;&nbsp;<br />
+			<div align="right">&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;日</div></td>
+		</tr>   
+		</tbody>
+	  </table>
+	  </volist>
+	  <div class="cl pd-5 bg-1 bk-gray mt-20">	
+	<img src="__MODULE__/Public/qrcode?token=<{$token}>"  />说明：手机扫描左侧二维码，或登录http://www.xtgjj.gov.cn/查验此证明真伪。
+	</div>
+	</div>	
+</div></block>
+<block name="script">
+<script type="text/javascript" src="/Public/Static/js/city.js"></script> 
+<script type="text/javascript">
+$('.table-sort').dataTable({
+	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+	"bStateSave": true,//状态保存
+	"aoColumnDefs": [
+	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+	  {"orderable":false,"aTargets":[0,13]}// 制定列不参与排序
+	]
+});
+function checkBox(cbox)
+{
+var obj = document.getElementsByName("mybox");
+for (var i=0; i < obj.length; i++)
+{
+obj[i].checked = false;
+}
+var sid = cbox.id;
+document.getElementById(sid).checked = true;
+}
+function confirmName(cbox)
+{
+document.getElementById("fundCenter").value=document.getElementById("province").value+document.getElementById("city").value+"公积金管理中心";
+}
+
+$(document).ready(function () {		
+        $("#print").click(function () {				
+            var options = {
+                url: '/Home/Qfund/allopatryLoanSave.html',
+                type: 'post',
+                dataType: 'text',
+                data: {fundCenter:$("#fundCenter").val(),proofCode:"<{$token}>"}
+            };
+            $.ajax(options);
+			$("#printDoc").printArea();
+            return false;
+        });
+    });			
+</script></block>

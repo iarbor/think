@@ -11,7 +11,8 @@
 
 // [ 应用入口文件 ]
 
+define('APP_DEBUG',True);
 // 定义应用目录
-define('APP_PATH', __DIR__ . '/../application/');
+define('APP_PATH', __DIR__ . '/../app/');
 // 加载框架引导文件
-require __DIR__ . '/../thinkphp/start.php';
+require __DIR__ . '/../core/start.php';
