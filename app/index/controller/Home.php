@@ -1,6 +1,6 @@
 <?php
 namespace app\index\controller;
-use Think\Controller;
+use think\Session;
 class Home extends \think\Controller {
 	protected $spcode='';	
 	protected $queryDate='';
@@ -8,9 +8,8 @@ class Home extends \think\Controller {
 	protected $person=array();
 	public function __construct(){
 		parent::__construct();
-		//if(isset($_COOKIE['spCode'])){
-		if(True){	
-			$this->spcode='100037179';
+		if(Session::has('spCode')){		
+			$this->spcode=Session::get('spCode');
 			$m=db('qfund_personinfo');
 			$person=$m->where("spcode='$this->spcode'")->find();			
 			if($person){
@@ -26,16 +25,18 @@ class Home extends \think\Controller {
 				//$this->person_arr[0]['spjcbl'] = ($this->person_arr[0]['spjcbl']/$sum*100).'%';				
 				$this->spName=$this->person['spname'];	
 				$this->spidno=$this->person['spidno'];	
-				//if(MD5($person['spidno'].$person['cardno'])!=htmlspecialchars(Cookie::get('person_sid'))
-				if(false)
+				if(MD5($person['spidno'].$person['cardno'])!= htmlspecialchars(Session::get('person_sid')))
+				//if(false)
 				{
 					$this->redirect('Login/index');
 					exit();
 				}					
-			}else{	
+			}
+			else{	
 				
 			}
-		}else{
+		}
+		else{
 				$this->redirect('Login/index');
 				exit();
 		}

@@ -1,9 +1,8 @@
-﻿<extend name="Public/body"/>
-<block name="title">
-公积金缴存账户信息</block>
-<block name="nav">
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 公积金缴存 <span class="c-gray en">&gt;</span> 账户信息 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"> <i class="Hui-iconfont">&#xe68f;</i></a></nav></block>
-<block name="page">
+﻿{extend name="Public/body"/}
+{block name="title"}公积金缴存账户信息{/block}
+{block name="nav"}
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 公积金缴存 <span class="c-gray en">&gt;</span> 账户信息 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"> <i class="Hui-iconfont">&#xe68f;</i></a></nav>{/block}
+{block name="page"}
 <div class="page-container">
 <p class="f-20 text-success">公积金缴存明细</p>	
 	
@@ -22,7 +21,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				<volist name="detail" id="vo2">
+				{volist name="detail" id="vo2"}
 					<tr>
 					<td ><{$vo2.qrrq}>&nbsp;</td>
 					<td><{$vo2.hjny}>&nbsp;</td>
@@ -32,12 +31,12 @@
 					<td><{$vo2.zc|number_format=2}>&nbsp;</td>
 					<td><{$vo2.ye|number_format=2}>&nbsp;</td>
 					</tr>
-				</volist>					
+				{/volist}
 				</tbody>		
 			</table>
 		</div>
-</div></block>
-<block name="script">
+</div>{/block}
+{block name="script"}
 <script type="text/javascript">
 $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
@@ -47,4 +46,4 @@ $('.table-sort').dataTable({
 	  {"orderable":true,"aTargets":[1,6]}// 制定列不参与排序
 	]
 });
-</script></block>
+</script>{/block}

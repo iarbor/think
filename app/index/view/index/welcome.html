@@ -1,6 +1,6 @@
-﻿<extend name="Public/body"/>
-<block name="title">账户概况</block>
-<block name="page">
+﻿{extend name="Public/body"/}
+{block name="title"}账户概况{/block}
+{block name="page"}
 <div class="page-container">
 	<p class="f-20 text-success">欢迎使用公积金查询及证明自助打印服务！</p>
 	<p> <font color='red'><{$tips}></font></p>
@@ -54,9 +54,9 @@
 </div>
 <div class="page-container">
 <div id="charts" style="height: 300px"></div>
-</div></block>
-<block name="script">
-<script type="text/javascript" src="/Public/lib/echarts/3/echarts.js"></script>
+</div>{/block}
+{block name="script"}
+<script type="text/javascript" src="/lib/echarts/3/echarts.js"></script>
        <script type="text/javascript">
 var dom = document.getElementById("charts");
 var myChart = echarts.init(dom);
@@ -114,4 +114,4 @@ if (option && typeof option === "object") {
     var updateTime = endTime - startTime;
     console.log("Time used:", updateTime);
 }
-</script></block>
+</script>{/block}

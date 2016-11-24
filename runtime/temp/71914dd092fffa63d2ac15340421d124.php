@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:61:"D:\WWW\apache\think\public/../app/index\view\index\index.html";i:1479824526;s:63:"D:\WWW\apache\think\public/../app/index\view\public\header.html";i:1479824065;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:61:"D:\WWW\apache\think\public/../app/index\view\index\index.html";i:1479908694;s:63:"D:\WWW\apache\think\public/../app/index\view\public\header.html";i:1479832105;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -10,18 +10,18 @@
 <LINK rel="Bookmark" href="/favicon.ico" >
 <LINK rel="Shortcut Icon" href="/favicon.ico" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
-<script type="text/javascript" src="lib/PIE_IE678.js"></script>
+<script type="text/javascript" src="/lib/html5.js"></script>
+<script type="text/javascript" src="/lib/respond.min.js"></script>
+<script type="text/javascript" src="/lib/PIE_IE678.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="Static/css/min.css" />
-<link rel="stylesheet" type="text/css" href="Static/css/admin.css" />
-<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.7/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="lib/icheck/icheck.css" />
-<link rel="stylesheet" type="text/css" href="Static/skin/blue/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="Static/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/min.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/admin.css" />
+<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="/static/skin/blue/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script type="text/javascript" src="/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>湘潭市公积金管理中心网上自助服务平台</title>
@@ -127,10 +127,10 @@
 		</div>
 	</div>
 </section>
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="lib/layer/2.1/layer.js"></script>
-<script type="text/javascript" src="Static/js/base.js"></script>
-<script type="text/javascript" src="Static/js/admin.js"></script>
+<script type="text/javascript" src="/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="/static/js/base.js"></script>
+<script type="text/javascript" src="/static/js/admin.js"></script>
 <script type="text/javascript">
 	function backxt(){
      	window.location.replace('<?php echo url('Login/logout'); ?>');

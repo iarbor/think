@@ -29,7 +29,7 @@ return [
     // 注册的根命名空间
     'root_namespace'         => [],
     // 扩展函数文件
-    'extra_file_list'        => [THINK_PATH . 'helper' . EXT],
+    'extra_file_list'        => [THINK_PATH . 'helper' . EXT, APP_PATH . 'helper.php'],
     // 默认输出类型
     'default_return_type'    => 'html',
     // 默认AJAX 数据返回格式,可选json xml ...
@@ -229,6 +229,25 @@ return [
         // 是否使用 setcookie
         'setcookie' => true,
     ],
+	
+	
+	//验证码
+	'captcha'  => [
+        // 验证码字符集合
+        'codeSet'  => '2345678abcdefhijkmnpqrstuvwxyzABCDEFGHJKLMNPQRTUVWXY', 
+        // 验证码字体大小(px)
+        'fontSize' => 18, 
+        // 是否画混淆曲线
+        'useCurve' => false, 
+         // 验证码图片高度
+        'imageH'   => 40,
+        // 验证码图片宽度
+        'imageW'   => 150, 
+        // 验证码位数
+        'length'   => 4, 
+        // 验证成功后是否重置        
+        'reset'    => true
+	],
 
     //分页配置
     'paginate'               => [

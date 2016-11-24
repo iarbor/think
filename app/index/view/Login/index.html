@@ -7,14 +7,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/Public/lib/html5.js"></script>
-<script type="text/javascript" src="/Public/lib/respond.min.js"></script>
-<script type="text/javascript" src="/Public/lib/PIE_IE678.js"></script>
+<script type="text/javascript" src="/lib/html5.js"></script>
+<script type="text/javascript" src="/lib/respond.min.js"></script>
+<script type="text/javascript" src="/lib/PIE_IE678.js"></script>
 <![endif]-->
-<link href="/Public/Static/css/min.css" rel="stylesheet" type="text/css" />
-<link href="/Public/Static/css/login.css" rel="stylesheet" type="text/css" />
-<link href="/Public/Static/css/style.css" rel="stylesheet" type="text/css" />
-<link href="/Public/lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/min.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/login.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet" type="text/css" />
 <title>用户登录-湘潭市公积金管理中心职工公积金查询及证明自助打印平台</title>
 <meta name="keywords" content="湘潭市公积金管理中心,湘潭职工公积金查询,公积金证明打印">
 <meta name="description" content="湘潭市公积金管理中心,湘潭职工公积金查询,公积金证明打印。">
@@ -24,7 +24,7 @@
 <div class="header"></div>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
-    <form class="form form-horizontal formlogin" action="<{:U('Login/do_login')}>" method="post" data-ajax="false">
+    <form class="form form-horizontal formlogin" action="<{:url('Login/do_login')}>" method="post" data-ajax="false">
       <div class="row cl">
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
         <div class="formControls col-xs-8">
@@ -46,7 +46,7 @@
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
           <input name="code" id="code" class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;" datatype="s4-4" errormsg="请输入4位验证码！">
-          <img src="__MODULE__/Public/code" onclick="this.src=this.src+'?'+Math.random()"/> 		  
+          <img src="<{:captcha_src()}>" onclick="this.src=this.src+'?'+Math.random()"/> 		  
       </div>
       
       <div class="row cl">
@@ -59,9 +59,9 @@
   </div>
 </div>
 <div class="footer">Copyright ©2016 湘潭市公积金管理中心  All Rights Reserved.</div>
-<script type="text/javascript" src="/Public/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="/Public/lib/Validform/5.3.2/Validform.min.js"></script> 
-<script type="text/javascript" src="/Public/Static/js/base.js"></script> 
+<script type="text/javascript" src="/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/lib/Validform/5.3.2/Validform.min.js"></script> 
+<script type="text/javascript" src="/static/js/base.js"></script> 
 <script>
 $(".formlogin").Validform();
 </script>
